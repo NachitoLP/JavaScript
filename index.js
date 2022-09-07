@@ -1,21 +1,24 @@
 function producto() {
 
     let iva = x => x * 0.21;
-    let precioMonitor = 80000;
-    let precioMouse = 6550;
-    let precioTeclado = 13000;
-    let precioAuricular = 9500;
+    
+    class Producto{
+        constructor(id, nombre, precio){
+            this.id = id;
+            this.nombre = nombre;
+            this.precioIva = iva(precio);
+            
+        }
+    }
+    
+    const productos = [
+        new Producto(1, "Monitor", 80000),
+        new Producto(2, "Mouse", 6500),
+        new Producto(3, "Teclado", 13000),
+        new Producto(4, "Auriculares", 9500)
+    ]
 
-    let monitor = {nombre:"Monitor SMG", precio: `Precio con IVA agregado: $${precioMonitor + iva(precioMonitor)}`};
-    let mouse = {nombre:"Mouse Logitech", precio: `Precio con IVA agregado: $${precioMouse + iva(precioMouse)}`};
-    let teclado = {nombre:"Teclado Logitech", precio: `Precio con IVA agregado: $${precioTeclado + iva(precioTeclado)}`};
-    let auricular = {nombre:"Auriculares Redragon", precio: `Precio con IVA agregado: $${precioAuricular + iva(precioAuricular)}`};
-
-    alert("Ok, los productos son los siguientes:");
-    alert(`${monitor.nombre}, ${monitor.precio}`); 
-    alert(`${mouse.nombre}, ${mouse.precio}`);
-    alert(`${teclado.nombre}, ${teclado.precio}`); 
-    alert(`${auricular.nombre}, ${auricular.precio}`);
+    productos.forEach(item => alert(`${item.nombre}, $${item.precioIva}`))
 }
 
 function vender() {
@@ -28,7 +31,7 @@ function vender() {
         alert("Ok, ten un buen día.")
     }
     else if (rta === "si"){
-        alert("Lo sentimos, nuestro sistema de ventas se encuentra deshabilitado temporalmente. Vuelva a intentarlo en otro momento.")
+        alert("Lo sentimos, nuestro sistema de ventas se encuentra deshabilitado temporalmente. Vuelva a intentarlo en otro momento.");
     }
 }
 
@@ -54,6 +57,7 @@ function ingreso(){
                 alert("Ok, ten un buen día.")
             }
             else if (confirmacion === "si"){
+                alert("Ok, los productos son los siguientes:");
                 producto();
                 vender();
             }
