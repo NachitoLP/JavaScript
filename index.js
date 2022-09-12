@@ -1,10 +1,13 @@
 function ingreso() {
     alert("Bienvenido a mi sitio web!");
     let nombre = prompt("Ingrese su nombre.");
-    alert(`¿Qué tal, ${nombre}?`);  
-}
 
-ingreso();
+    let contenedor = document.getElementById("div_titulo");
+    let h2 = document.createElement("h2");
+    h2.innerHTML = `<center>Bienvenido, ${nombre}. Probá cambiar el color de la barra de navegación. ¡Es fácil!</center>`;
+    contenedor.appendChild(h2);
+    h2.className = "titulo";
+}
 
 const botonRojo = () => {
     const respuesta = () => {
@@ -36,6 +39,7 @@ const botonVerde = () => {
     boton.addEventListener("click", respuesta);
 }
 
+ingreso();
 botonRojo();
 botonAzul();
 botonVerde();
