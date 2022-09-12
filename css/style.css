@@ -1,2 +1,51 @@
-.titulo {
-  background-color: red; }
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Poppins', sans-serif; }
+
+li {
+  list-style: none; }
+
+:any-link {
+  text-decoration: none; }
+
+.body_header_nav {
+  height: 50px;
+  width: 100%; }
+  .body_header_nav .header_nav_list {
+    display: flex;
+    justify-content: space-evenly;
+    line-height: 50px; }
+    .body_header_nav .header_nav_list a {
+      color: black; }
+
+.body_main .titulo {
+  margin: 20px 0px; }
+
+.body_main .body_main_section_1 {
+  display: flex;
+  justify-content: center; }
+  .body_main .body_main_section_1 .boton_juego {
+    padding: 15px;
+    margin: 0px 20px; }
+
+.body_main #boton_rojo {
+  background-color: rgba(255, 0, 0, 0.5);
+  border: 2px solid black; }
+
+.body_main #boton_azul {
+  background-color: rgba(4, 0, 255, 0.5);
+  border: 2px solid black; }
+
+.body_main #boton_verde {
+  background-color: rgba(60, 255, 0, 0.5);
+  border: 2px solid black; }
+
+.rojo {
+  background-color: rgba(255, 0, 0, 0.5); }
+
+.azul {
+  background-color: rgba(4, 0, 255, 0.5); }
+
+.verde {
+  background-color: rgba(60, 255, 0, 0.5); }

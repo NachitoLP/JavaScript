@@ -1,0 +1,55 @@
+.body_header_nav{
+    height: 50px;
+    width: 100%;
+
+    .header_nav_list{
+        display: flex;
+        justify-content: space-evenly;
+        line-height: 50px;
+        
+        a{
+            color: black;
+        }
+    }
+}
+
+.body_main{
+    .titulo{
+        margin: 20px 0px;
+    }
+    
+    .body_main_section_1{
+        display: flex;
+        justify-content: center;
+    
+        .boton_juego{
+            padding: 15px;
+            margin: 0px 20px;
+        }
+    }
+    #boton_rojo{
+        background-color: rgba(255, 0, 0, 0.5);
+        border: 2px solid black;
+    }
+    #boton_azul{
+        background-color: rgba(4, 0, 255, 0.5);
+        border: 2px solid black;
+    }
+    #boton_verde{
+        background-color: rgba(60, 255, 0, 0.5);
+        border: 2px solid black;
+    }
+}
+
+
+
+// CLASES JAVASCRIPT
+.rojo{
+    background-color: rgba(255, 0, 0, 0.5);
+}
+.azul{
+    background-color: rgba(4, 0, 255, 0.5);
+}
+.verde{
+    background-color: rgba(60, 255, 0, 0.5);
+}
