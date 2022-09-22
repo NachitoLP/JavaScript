@@ -25,33 +25,32 @@ li {
   .body_main .main_form {
     margin: auto;
     display: flex;
-    flex-direction: column; }
-    .body_main .main_form input {
+    justify-content: center;
+    margin: 10px 0px 20px; }
+    .body_main .main_form #nombre {
       width: 200px;
-      margin: auto;
-      margin-bottom: 20px;
       padding: 10px;
       text-align: center;
       border: none;
-      border-radius: 5px; }
-    .body_main .main_form #nombre {
-      margin-top: 20px;
+      border-radius: 5px;
+      margin-right: 15px;
       background-color: #c70042;
       transition: 0.5s; }
-      .body_main .main_form #nombre:hover {
-        transform: scale(1.1, 1.1);
-        transition: 0.5s; }
       .body_main .main_form #nombre:focus {
         transform: scale(1.1, 1.1);
         transition: 0.5s; }
       .body_main .main_form #nombre::placeholder {
         color: white; }
     .body_main .main_form #enviar {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
       background-color: #c70042;
-      color: white; }
+      color: white;
+      transition: 0.2s; }
       .body_main .main_form #enviar:hover {
-        background-color: rgba(255, 0, 0, 0.5);
-        cursor: pointer; }
+        background-color: #5a001e;
+        transition: 0.2s; }
   .body_main .titulo {
     margin: 20px 50px; }
   .body_main .body_main_section_1 {
@@ -60,6 +59,80 @@ li {
     .body_main .body_main_section_1 .boton_juego {
       padding: 15px;
       margin: 0px 20px; }
+  .body_main .body_main_section_2 .contenedor_busqueda {
+    display: flex;
+    justify-content: center;
+    margin: 40px; }
+    .body_main .body_main_section_2 .contenedor_busqueda .input_busqueda {
+      width: 200px;
+      padding: 10px;
+      text-align: center;
+      border: none;
+      border-radius: 5px;
+      margin-right: 5px;
+      background-color: #c70042;
+      transition: 0.5s; }
+      .body_main .body_main_section_2 .contenedor_busqueda .input_busqueda:focus {
+        transform: scale(1.1, 1.1);
+        transition: 0.5s; }
+      .body_main .body_main_section_2 .contenedor_busqueda .input_busqueda::placeholder {
+        color: white; }
+    .body_main .body_main_section_2 .contenedor_busqueda .boton_restart {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: rgba(199, 0, 66, 0.5);
+      color: white;
+      transition: 0.2s; }
+      .body_main .body_main_section_2 .contenedor_busqueda .boton_restart:hover {
+        background-color: #5a001e;
+        transition: 0.2s; }
+    .body_main .body_main_section_2 .contenedor_busqueda .input_enviar_busqueda {
+      padding: 10px;
+      margin: 0px 10px 0px 0px;
+      border: none;
+      border-radius: 5px;
+      background-color: #c70042;
+      color: white;
+      transition: 0.2s; }
+      .body_main .body_main_section_2 .contenedor_busqueda .input_enviar_busqueda:hover {
+        background-color: #5a001e;
+        transition: 0.2s; }
+  .body_main .body_main_section_2 .section_carrito {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 40px 0px; }
+    .body_main .body_main_section_2 .section_carrito div {
+      background-color: rgba(0, 0, 0, 0.5);
+      width: 140px;
+      height: 140px;
+      border-radius: 5px;
+      box-shadow: 3px 3px 2px 2px rgba(0, 0, 0, 0.6);
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center; }
+      .body_main .body_main_section_2 .section_carrito div p {
+        color: white;
+        margin: 10px 0px; }
+  .body_main .body_main_section_2 .section_desaparece {
+    display: none; }
+  .body_main .body_main_section_2 .resultado_busqueda {
+    display: block;
+    margin: auto;
+    margin-bottom: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 140px;
+    height: 140px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 2px 2px rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center; }
+    .body_main .body_main_section_2 .resultado_busqueda p {
+      color: white;
+      margin: 10px 0px; }
   .body_main #boton_rojo {
     background-color: rgba(255, 0, 0, 0.5);
     border: 2px solid black; }
