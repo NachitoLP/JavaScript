@@ -1,16 +1,23 @@
 function ingreso() {
-    alert("Bienvenido a mi sitio web!");
-    let nombre = prompt("Ingrese su nombre.");
-    if (nombre === "") {
-        alert("Ese no es un nombre válido. Vuelva a ingresarlo.");
-        ingreso();
-        h2.innerHTML = "";
-    }
-    let contenedor = document.getElementById("div_titulo");
-    let h2 = document.createElement("h2");
-    h2.innerHTML = `<center>Bienvenido, ${nombre}. Probá cambiar el color de la barra de navegación. ¡Es fácil!</center>`;
-    contenedor.appendChild(h2);
-    h2.className = "titulo";
+    let condicion = false;
+    let formulario = document.getElementById("formulario");
+    formulario.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        let nombre = e.target.children;
+        sessionStorage.setItem("nombre", JSON.stringify(nombre[0].value));
+        let contenedor = document.getElementById("div_titulo");
+        let h2 = document.createElement("h2");
+        contenedor.appendChild(h2);
+        h2.className = "titulo";
+        if (condicion === false) {
+            h2.innerHTML = `<center>Bienvenido, ${JSON.parse(sessionStorage.getItem("nombre"))}. Probá cambiar el color de la barra de navegación. ¡Es fácil!</center>`;
+            condicion = true;
+            formulario.className = "desaparece"
+        }else if (condicion === true){
+            h2.innerHTML = "";
+        }
+    })
 }
 
 const botonRojo = () => {

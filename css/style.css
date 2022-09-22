@@ -19,27 +19,56 @@ li {
     .body_header_nav .header_nav_list a {
       color: black; }
 
-.body_main .titulo {
-  margin: 20px 50px; }
-
-.body_main .body_main_section_1 {
-  display: flex;
-  justify-content: center; }
-  .body_main .body_main_section_1 .boton_juego {
-    padding: 15px;
-    margin: 0px 20px; }
-
-.body_main #boton_rojo {
-  background-color: rgba(255, 0, 0, 0.5);
-  border: 2px solid black; }
-
-.body_main #boton_azul {
-  background-color: rgba(4, 0, 255, 0.5);
-  border: 2px solid black; }
-
-.body_main #boton_verde {
-  background-color: rgba(60, 255, 0, 0.5);
-  border: 2px solid black; }
+.body_main {
+  background-image: url(/ProyectoJS/fotos/fondo.jpg);
+  height: 1200px; }
+  .body_main .main_form {
+    margin: auto;
+    display: flex;
+    flex-direction: column; }
+    .body_main .main_form input {
+      width: 200px;
+      margin: auto;
+      margin-bottom: 20px;
+      padding: 10px;
+      text-align: center;
+      border: none;
+      border-radius: 5px; }
+    .body_main .main_form #nombre {
+      margin-top: 20px;
+      background-color: #c70042;
+      transition: 0.5s; }
+      .body_main .main_form #nombre:hover {
+        transform: scale(1.1, 1.1);
+        transition: 0.5s; }
+      .body_main .main_form #nombre:focus {
+        transform: scale(1.1, 1.1);
+        transition: 0.5s; }
+      .body_main .main_form #nombre::placeholder {
+        color: white; }
+    .body_main .main_form #enviar {
+      background-color: #c70042;
+      color: white; }
+      .body_main .main_form #enviar:hover {
+        background-color: rgba(255, 0, 0, 0.5);
+        cursor: pointer; }
+  .body_main .titulo {
+    margin: 20px 50px; }
+  .body_main .body_main_section_1 {
+    display: flex;
+    justify-content: center; }
+    .body_main .body_main_section_1 .boton_juego {
+      padding: 15px;
+      margin: 0px 20px; }
+  .body_main #boton_rojo {
+    background-color: rgba(255, 0, 0, 0.5);
+    border: 2px solid black; }
+  .body_main #boton_azul {
+    background-color: rgba(4, 0, 255, 0.5);
+    border: 2px solid black; }
+  .body_main #boton_verde {
+    background-color: rgba(60, 255, 0, 0.5);
+    border: 2px solid black; }
 
 .rojo {
   background-color: rgba(255, 0, 0, 0.5); }
@@ -49,3 +78,6 @@ li {
 
 .verde {
   background-color: rgba(60, 255, 0, 0.5); }
+
+.desaparece {
+  display: none; }

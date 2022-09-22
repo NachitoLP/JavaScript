@@ -14,6 +14,49 @@
 }
 
 .body_main{
+    background-image: url(/ProyectoJS/fotos/fondo.jpg);
+    height: 1200px;
+    .main_form{
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        
+        input{
+            width: 200px;
+            margin: auto;
+            margin-bottom: 20px;
+            padding: 10px;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+        }
+        #nombre{
+            margin-top: 20px;
+            background-color: rgb(199, 0, 66);
+            transition: 0.5s;
+
+            &:hover {
+                transform: scale(1.1, 1.1);
+                transition: 0.5s;
+            }
+            &:focus {
+                transform: scale(1.1, 1.1);
+                transition: 0.5s;
+            }
+            &::placeholder{
+                color: white;
+            }
+        }
+        #enviar{
+            background-color: rgb(199, 0, 66);
+            color: white;
+
+            &:hover{
+                background-color: rgba(255, 0, 0, 0.5);
+                cursor: pointer;
+            }
+        }
+    }
     .titulo{
         margin: 20px 50px;
     }
@@ -51,4 +94,7 @@
 }
 .verde{
     background-color: rgba(60, 255, 0, 0.5);
+}
+.desaparece{
+    display: none;
 }
