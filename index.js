@@ -74,14 +74,20 @@ function carrito() {
 
             productoBuscado = busqueda.value.toLowerCase();
             let producto = productos.find(producto => producto.nombre === productoBuscado);
-            let div2 = document.createElement("div");
-            div2.innerHTML = `
-                <h3>ID: ${producto.id}</h3>
-                <p>Nombre: ${producto.nombre}</p>
-                <p>Precio: ${producto.precio}</p>
-            `;
-            contenedorCarrito.append(div2);
-            div2.className = "resultado_busqueda";
+            if (producto.nombre === productoBuscado){
+                contenedorCarrito.innerHTML = "";
+                let div2 = document.createElement("div");
+                div2.innerHTML = `
+                    <h3>ID: ${producto.id}</h3>
+                    <p>Nombre: ${producto.nombre}</p>
+                    <p>Precio: ${producto.precio}</p>
+                `;
+                contenedorCarrito.append(div2);
+                div2.className = "resultado_busqueda";
+            }else if (productoBuscado != producto.nombre){
+                div2.className = "section_desaparece";
+            }
+            
         })
     } 
     busqueda();

@@ -104,7 +104,7 @@
             }
             .input_enviar_busqueda{
                 padding: 10px;
-                margin: 0px 10px 0px 0px;
+                margin-left: 10px;
                 border: none;
                 border-radius: 5px;
                 background-color: rgb(199, 0, 66);
@@ -121,11 +121,15 @@
             display: flex;
             justify-content: space-evenly;
             flex-wrap: wrap;
+            border: 2px solid white;
+            border-bottom: none;
+            border-top: none;
+            width: 1000px;
             div{
                 background-color: rgba(0, 0, 0, 0.5);
                 width: 140px;
                 height: 140px;
-                margin: 40px 40px;
+                margin: 30px 40px;
                 border-radius: 5px;
                 box-shadow: 3px 3px 2px 2px rgba(0, 0, 0, 0.6);
                 display: flex;

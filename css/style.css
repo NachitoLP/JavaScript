@@ -89,7 +89,7 @@ li {
         transition: 0.2s; }
     .body_main .body_main_section_2 .contenedor_busqueda .input_enviar_busqueda {
       padding: 10px;
-      margin: 0px 10px 0px 0px;
+      margin-left: 10px;
       border: none;
       border-radius: 5px;
       background-color: #c70042;
@@ -101,12 +101,16 @@ li {
   .body_main .body_main_section_2 .section_carrito {
     display: flex;
     justify-content: space-evenly;
-    flex-wrap: wrap; }
+    flex-wrap: wrap;
+    border: 2px solid white;
+    border-bottom: none;
+    border-top: none;
+    width: 1000px; }
     .body_main .body_main_section_2 .section_carrito div {
       background-color: rgba(0, 0, 0, 0.5);
       width: 140px;
       height: 140px;
-      margin: 40px 40px;
+      margin: 30px 40px;
       border-radius: 5px;
       box-shadow: 3px 3px 2px 2px rgba(0, 0, 0, 0.6);
       display: flex;
