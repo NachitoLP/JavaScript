@@ -31,7 +31,18 @@ function carrito() {
         {id: 3, nombre: "zapatillas", precio: "$8000"},
         {id: 4, nombre: "gorra", precio: "$3000"},
         {id: 5, nombre: "guantes", precio: "$1200"},
-        {id: 6, nombre: "pantalón", precio: "$9000"}
+        {id: 6, nombre: "pantalón", precio: "$9000"},
+        {id: 7, nombre: "sabana", precio: "$4500"},
+        {id: 8, nombre: "almohada", precio: "$2500"},
+        {id: 9, nombre: "frazada", precio: "$4500"},
+        {id: 10, nombre: "bufanda", precio: "$2260"},
+        {id: 11, nombre: "botines", precio: "$13500"},
+        {id: 12, nombre: "colchon", precio: "$47000"},
+        {id: 13, nombre: "gorro", precio: "$3300"},
+        {id: 14, nombre: "lona", precio: "$7800"},
+        {id: 15, nombre: "alfombra", precio: "$8900"},
+        {id: 16, nombre: "cortina", precio: "$11000"},
+        
     ]
     localStorage.setItem("carrito", JSON.stringify(productos));
 
