@@ -31,7 +31,7 @@ function carrito() {
         {id: 3, nombre: "zapatillas", precio: "$8000"},
         {id: 4, nombre: "gorra", precio: "$3000"},
         {id: 5, nombre: "guantes", precio: "$1200"},
-        {id: 6, nombre: "pantalón", precio: "$9000"},
+        {id: 6, nombre: "pantalon", precio: "$9000"},
         {id: 7, nombre: "sabana", precio: "$4500"},
         {id: 8, nombre: "almohada", precio: "$2500"},
         {id: 9, nombre: "frazada", precio: "$4500"},
@@ -64,7 +64,20 @@ function carrito() {
         let contenedorBusqueda = document.getElementById("formulario_busqueda");
         let contenedorCarrito = document.getElementById("contenedor_carrito");
         let busqueda = document.getElementById("input_busqueda");
+        let reset = document.createElement("button");
         let condicion = false;
+
+        reset.className = "boton_restart";
+        reset.innerHTML = `
+            Reset
+        `;
+        contenedorBusqueda.append(reset);
+
+        reset.addEventListener("click", (r) =>{
+            location.reload();
+            r.preventDefault();
+        });
+
         contenedorBusqueda.addEventListener("submit", (e) => {
             e.preventDefault();
             condicion = true;
@@ -76,11 +89,15 @@ function carrito() {
             let producto = productos.find(producto => producto.nombre === productoBuscado);
             if (producto.nombre === productoBuscado){
                 contenedorCarrito.innerHTML = "";
+                reset.innerHTML = "";
                 let div2 = document.createElement("div");
                 div2.innerHTML = `
                     <h3>ID: ${producto.id}</h3>
                     <p>Nombre: ${producto.nombre}</p>
                     <p>Precio: ${producto.precio}</p>
+                `;
+                reset.innerHTML = `
+                    Reset
                 `;
                 contenedorCarrito.append(div2);
                 div2.className = "resultado_busqueda";

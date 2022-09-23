@@ -79,6 +79,7 @@ li {
         color: white; }
     .body_main .body_main_section_2 .contenedor_busqueda .boton_restart {
       padding: 10px;
+      margin-left: 10px;
       border: none;
       border-radius: 5px;
       background-color: rgba(199, 0, 66, 0.5);
