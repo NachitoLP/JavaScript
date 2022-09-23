@@ -84,10 +84,7 @@ function carrito() {
                 `;
                 contenedorCarrito.append(div2);
                 div2.className = "resultado_busqueda";
-            }else if (productoBuscado != producto.nombre){
-                div2.className = "section_desaparece";
             }
-            
         })
     } 
     busqueda();
