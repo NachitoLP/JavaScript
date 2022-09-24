@@ -23,17 +23,14 @@ function ingreso() {
 
 // FUNCION DE CARRITO
 function carrito() {
-    // BOTON AGREGAR PRODUCTO
-    const agregarProducto = (id) => {
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'No se puede agregar artículos al carrito en este momento...'
-          })
-    }
     let contenedor = document.getElementById("carrito");
     let carritoStorage = JSON.parse(localStorage.getItem("carrito"));
     let carrito = carritoStorage ? carritoStorage : carrito = [];
+    let botonEliminar = document.getElementById("boton_eliminar");
+    let contenedorProductosAgregados = document.getElementById("contenedor_productos_agregados");
+    botonEliminar.addEventListener("click", () =>{
+        contenedorProductosAgregados.innerHTML = "";
+    })
     
     const productos = [
         {id: 1, nombre: "camisa", precio: "$5500"},
@@ -67,8 +64,26 @@ function carrito() {
         `;
         div.className = "producto_carrito"
         contenedor.append(div);
+
+        // BOTON AGREGAR PRODUCTO
+        const agregarProducto = (producto) => {
+            Swal.fire({
+                icon: 'success',
+                title: '¡Listo!',
+                text: 'El producto se agregó al carrito correctamente.'
+            })
+            let divProducto = document.createElement("div");
+            let contenedorProductosAgregados = document.getElementById("contenedor_productos_agregados");
+            divProducto.innerHTML = `
+                <h3>ID: ${producto.id}</h3>
+                <p>Nombre: ${producto.nombre}</p>
+                <p>Precio: ${producto.precio}</p>
+            `
+            divProducto.className = "producto_carrito"
+            contenedorProductosAgregados.append(divProducto);
+        }
         let agregar = document.getElementById(`boton${producto.id}`);
-        agregar.addEventListener("click", () => agregarProducto(producto.id));
+        agregar.addEventListener("click", () => agregarProducto(producto));
     });
 
     // FUNCION DE BUSQUEDA DE PRODUCTOS
@@ -119,15 +134,25 @@ function carrito() {
                 div2.className = "resultado_busqueda";
 
                 // BOTON AGREGAR
-                const agregarProducto = (id) => {
+                const agregarProducto = (producto) => {
                     Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'No se puede agregar artículos al carrito en este momento...'
-                    })
-                }
+                        icon: 'success',
+                        title: '¡Listo!',
+                        text: 'El producto se agregó al carrito correctamente.'
+                    })/* 
+                    sessionStorage.setItem("Producto agregado", JSON.stringify(producto)); */
+                    let divProducto = document.createElement("div");
+                    let contenedorProductosAgregados = document.getElementById("contenedor_productos_agregados");
+                    divProducto.innerHTML = `
+                        <h3>ID: ${producto.id}</h3>
+                        <p>Nombre: ${producto.nombre}</p>
+                        <p>Precio: ${producto.precio}</p>
+                    `
+                    divProducto.className = "producto_carrito"
+                    contenedorProductosAgregados.append(divProducto);
+                }        
                 let agregar = document.getElementById(`boton${producto.id}`);
-                agregar.addEventListener("click", () => agregarProducto(producto.id));
+                agregar.addEventListener("click", () => agregarProducto(producto));
             }
         })
     } 

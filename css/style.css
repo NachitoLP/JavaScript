@@ -21,6 +21,7 @@ li {
 
 .body_main {
   background-image: url(../fotos/fondo.jpg);
+  background-attachment: fixed;
   height: 1200px; }
   .body_main .main_form {
     margin: auto;
@@ -99,31 +100,33 @@ li {
       .body_main .body_main_section_2 .contenedor_busqueda .input_enviar_busqueda:hover {
         background-color: #5a001e;
         transition: 0.2s; }
-  .body_main .body_main_section_2 .section_carrito {
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    border: 2px solid white;
-    border-bottom: none;
-    border-top: none;
-    width: 1000px; }
-    .body_main .body_main_section_2 .section_carrito .producto_carrito {
-      background-color: rgba(0, 0, 0, 0.5);
-      width: 140px;
-      height: 140px;
-      margin: 30px 40px;
-      border-radius: 5px;
-      box-shadow: 3px 3px 2px 2px rgba(0, 0, 0, 0.6);
+  .body_main .body_main_section_2 .contenedor_productos {
+    height: 900px; }
+    .body_main .body_main_section_2 .contenedor_productos .section_productos {
       display: flex;
-      justify-content: center;
-      flex-direction: column;
-      text-align: center; }
-      .body_main .body_main_section_2 .section_carrito .producto_carrito p {
-        color: white;
-        margin: 5px 0px 10px; }
-      .body_main .body_main_section_2 .section_carrito .producto_carrito h3 {
-        color: white;
-        margin: 7px 0px; }
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+      border: 2px solid white;
+      border-bottom: none;
+      border-top: none;
+      width: 1000px; }
+      .body_main .body_main_section_2 .contenedor_productos .section_productos .producto_carrito {
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 140px;
+        height: 140px;
+        margin: 30px 40px;
+        border-radius: 5px;
+        box-shadow: 3px 3px 2px 2px rgba(0, 0, 0, 0.6);
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center; }
+        .body_main .body_main_section_2 .contenedor_productos .section_productos .producto_carrito p {
+          color: white;
+          margin: 5px 0px 10px; }
+        .body_main .body_main_section_2 .contenedor_productos .section_productos .producto_carrito h3 {
+          color: white;
+          margin: 7px 0px; }
   .body_main .body_main_section_2 .section_desaparece {
     display: none; }
   .body_main .body_main_section_2 .resultado_busqueda {
@@ -190,6 +193,50 @@ li {
     .body_main .boton_add:hover {
       background-color: #8f103a;
       transition: 0.2s; }
+  .body_main .section_carrito {
+    text-align: center;
+    margin: 47px 0px;
+    background: #766c93;
+    background: linear-gradient(180deg, #332e41 2%, #121042 85%, #121042 100%);
+    width: 100%;
+    height: fit-content; }
+    .body_main .section_carrito .titulo_carrito {
+      color: white;
+      font-size: 22px;
+      padding: 15px; }
+    .body_main .section_carrito .contenedor_section_carrito {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center; }
+      .body_main .section_carrito .contenedor_section_carrito .producto_carrito {
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 140px;
+        height: 140px;
+        margin: 30px 40px;
+        border-radius: 5px;
+        box-shadow: 3px 3px 2px 2px rgba(0, 0, 0, 0.6);
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center; }
+        .body_main .section_carrito .contenedor_section_carrito .producto_carrito p {
+          color: white;
+          margin: 5px 0px 10px; }
+        .body_main .section_carrito .contenedor_section_carrito .producto_carrito h3 {
+          color: white;
+          margin: 7px 0px; }
+    .body_main .section_carrito .boton_limpiar_carrito {
+      padding: 10px;
+      margin: auto;
+      margin-bottom: 10px;
+      color: white;
+      background-color: #5a001e;
+      border: none;
+      border-radius: 4px;
+      transition: 0.2s; }
+      .body_main .section_carrito .boton_limpiar_carrito:hover {
+        background-color: #8f103a;
+        transition: 0.2s; }
 
 .rojo {
   background-color: rgba(255, 0, 0, 0.5); }
