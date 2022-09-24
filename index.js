@@ -25,7 +25,11 @@ function ingreso() {
 function carrito() {
     // BOTON AGREGAR PRODUCTO
     const agregarProducto = (id) => {
-        alert("ID: " + id);
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'No se puede agregar artículos al carrito en este momento...'
+          })
     }
     let contenedor = document.getElementById("carrito");
     let carritoStorage = JSON.parse(localStorage.getItem("carrito"));
@@ -116,7 +120,11 @@ function carrito() {
 
                 // BOTON AGREGAR
                 const agregarProducto = (id) => {
-                    alert("ID: " + id);
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'No se puede agregar artículos al carrito en este momento...'
+                    })
                 }
                 let agregar = document.getElementById(`boton${producto.id}`);
                 agregar.addEventListener("click", () => agregarProducto(producto.id));
