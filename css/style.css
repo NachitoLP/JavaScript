@@ -120,9 +120,22 @@ li {
       text-align: center; }
       .body_main .body_main_section_2 .section_carrito div p {
         color: white;
-        margin: 10px 0px; }
+        margin: 5px 0px 10px; }
       .body_main .body_main_section_2 .section_carrito div h3 {
-        color: white; }
+        color: white;
+        margin: 7px 0px; }
+      .body_main .body_main_section_2 .section_carrito div .boton_add {
+        padding: 5px;
+        margin: auto;
+        width: 50px;
+        color: white;
+        background-color: #5a001e;
+        border: none;
+        border-radius: 4px;
+        transition: 0.2s; }
+        .body_main .body_main_section_2 .section_carrito div .boton_add:hover {
+          background-color: #8f103a;
+          transition: 0.2s; }
   .body_main .body_main_section_2 .section_desaparece {
     display: none; }
   .body_main .body_main_section_2 .resultado_busqueda {

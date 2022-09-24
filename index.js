@@ -21,6 +21,9 @@ function ingreso() {
 }
 
 function carrito() {
+    const agregarProducto = (id) => {
+        alert("ID: " + id);
+    }
     let contenedor = document.getElementById("carrito");
     let carrito = [];
     let carritoStorage = JSON.parse(localStorage.getItem("carrito"));
@@ -56,8 +59,11 @@ function carrito() {
             <h3>ID: ${producto.id}</h3>
             <p>Nombre: ${producto.nombre}</p>
             <p>Precio: ${producto.precio}</p>
+            <button id="boton${producto.id}" class="boton_add">Add</button>
         `;
         contenedor.append(div);
+        let agregar = document.getElementById(`boton${producto.id}`);
+        agregar.addEventListener("click", () => agregarProducto(producto.id));
     });
 
     function busqueda() {

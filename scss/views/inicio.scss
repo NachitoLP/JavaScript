@@ -140,10 +140,26 @@
 
                 p{
                     color: white;
-                    margin: 10px 0px;
+                    margin: 5px 0px 10px;
                 }
                 h3{
                     color: white;
+                    margin: 7px 0px;
+                }
+                .boton_add{
+                    padding: 5px;
+                    margin: auto;
+                    width: 50px;
+                    color: white;
+                    background-color: rgb(90, 0, 30);
+                    border: none;
+                    border-radius: 4px;
+                    transition: 0.2s;
+                    
+                    &:hover {
+                        background-color: rgb(143, 16, 58);
+                        transition: 0.2s;
+                    }
                 }
             }
         }
