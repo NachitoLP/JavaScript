@@ -1,3 +1,4 @@
+// INGRESO DE NOMBRE
 function ingreso() {
     let condicion = false;
     let formulario = document.getElementById("formulario");
@@ -11,7 +12,7 @@ function ingreso() {
         contenedor.appendChild(h2);
         h2.className = "titulo";
         if (condicion === false) {
-            h2.innerHTML = `<center>Bienvenido, ${JSON.parse(sessionStorage.getItem("nombre"))}. Probá cambiar el color de la barra de navegación. ¡Es fácil!</center>`;
+            h2.innerHTML = `<center>Bienvenido, ${JSON.parse(sessionStorage.getItem("nombre").toUpperCase())}. Probá cambiar el color de la barra de navegación. ¡Es fácil!</center>`;
             condicion = true;
             formulario.className = "desaparece"
         }else if (condicion === true){
@@ -20,13 +21,15 @@ function ingreso() {
     })
 }
 
+// FUNCION DE CARRITO
 function carrito() {
+    // BOTON AGREGAR PRODUCTO
     const agregarProducto = (id) => {
         alert("ID: " + id);
     }
     let contenedor = document.getElementById("carrito");
-    let carrito = [];
     let carritoStorage = JSON.parse(localStorage.getItem("carrito"));
+    let carrito = carritoStorage ? carritoStorage : carrito = [];
     
     const productos = [
         {id: 1, nombre: "camisa", precio: "$5500"},
@@ -48,11 +51,8 @@ function carrito() {
         
     ]
     localStorage.setItem("carrito", JSON.stringify(productos));
-
-    if(carritoStorage){
-        carrito = carritoStorage;
-    }
-
+    
+    // FOREACH DE CADA PRODUCTO
     carrito.forEach(producto => {
         let div = document.createElement("div");
         div.innerHTML = `
@@ -61,11 +61,13 @@ function carrito() {
             <p>Precio: ${producto.precio}</p>
             <button id="boton${producto.id}" class="boton_add">Add</button>
         `;
+        div.className = "producto_carrito"
         contenedor.append(div);
         let agregar = document.getElementById(`boton${producto.id}`);
         agregar.addEventListener("click", () => agregarProducto(producto.id));
     });
 
+    // FUNCION DE BUSQUEDA DE PRODUCTOS
     function busqueda() {
         let contenedorBusqueda = document.getElementById("formulario_busqueda");
         let contenedorCarrito = document.getElementById("contenedor_carrito");
@@ -94,19 +96,30 @@ function carrito() {
             productoBuscado = busqueda.value.toLowerCase();
             let producto = productos.find(producto => producto.nombre === productoBuscado);
             if (producto.nombre === productoBuscado){
+                // RESET
                 contenedorCarrito.innerHTML = "";
                 reset.innerHTML = "";
+
+                // DIV PRODUCTO BUSCADO
                 let div2 = document.createElement("div");
                 div2.innerHTML = `
                     <h3>ID: ${producto.id}</h3>
                     <p>Nombre: ${producto.nombre}</p>
                     <p>Precio: ${producto.precio}</p>
+                    <button id="boton${producto.id}" class="boton_add">Add</button>
                 `;
                 reset.innerHTML = `
                     Reset
                 `;
                 contenedorCarrito.append(div2);
                 div2.className = "resultado_busqueda";
+
+                // BOTON AGREGAR
+                const agregarProducto = (id) => {
+                    alert("ID: " + id);
+                }
+                let agregar = document.getElementById(`boton${producto.id}`);
+                agregar.addEventListener("click", () => agregarProducto(producto.id));
             }
         })
     } 
