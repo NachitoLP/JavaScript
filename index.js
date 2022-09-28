@@ -29,7 +29,20 @@ function carrito() {
     let botonEliminar = document.getElementById("boton_eliminar");
     let contenedorProductosAgregados = document.getElementById("contenedor_productos_agregados");
     botonEliminar.addEventListener("click", () =>{
-        contenedorProductosAgregados.innerHTML = "";
+        if(contenedorProductosAgregados.innerHTML === ""){
+            Swal.fire({
+                icon: 'error',
+                title: 'Ups...',
+                text: 'El carrito está vacío actualmente.'
+            })
+        }else{
+            Swal.fire({
+                icon: 'success',
+                title: '¡Listo!',
+                text: 'El carrito se eliminó correctamente.'
+            })
+            contenedorProductosAgregados.innerHTML = "";
+        }
     })
     
     const productos = [
