@@ -138,7 +138,7 @@ function carrito() {
             let producto = productos.find(producto => producto.nombre === productoBuscado);
             if (producto.nombre === productoBuscado){
                 contenedorCarrito.innerHTML = "";
-                
+
                 // DIV PRODUCTO BUSCADO
                 let divProductoBuscado = document.createElement("div");
                 divProductoBuscado.innerHTML = `
@@ -202,3 +202,4 @@ function colores() {
 
 ingreso();
 carrito();
+colores();
