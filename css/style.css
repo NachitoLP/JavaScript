@@ -128,7 +128,7 @@ li {
           color: white;
           margin: 7px 0px; }
   .body_main .body_main_section_2 .section_desaparece {
-    display: none; }
+    display: none !important; }
   .body_main .body_main_section_2 .resultado_busqueda {
     display: block;
     margin: auto;

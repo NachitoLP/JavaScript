@@ -23,7 +23,7 @@ function ingreso() {
 
 // FUNCION DE CARRITO
 function carrito() {
-    let contenedor = document.getElementById("carrito");
+    let seccionCarritoGeneral = document.getElementById("carrito");
     let carritoStorage = JSON.parse(localStorage.getItem("carrito"));
     let carrito = carritoStorage ? carritoStorage : carrito = [];
     let botonEliminar = document.getElementById("boton_eliminar");
@@ -68,15 +68,15 @@ function carrito() {
     
     // FOREACH DE CADA PRODUCTO
     carrito.forEach(producto => {
-        let div = document.createElement("div");
-        div.innerHTML = `
+        let divProductosGeneral = document.createElement("div");
+        divProductosGeneral.innerHTML = `
             <h3>ID: ${producto.id}</h3>
             <p>Nombre: ${producto.nombre}</p>
             <p>Precio: ${producto.precio}</p>
             <button id="boton${producto.id}" class="boton_add">Add</button>
         `;
-        div.className = "producto_carrito"
-        contenedor.append(div);
+        divProductosGeneral.className = "producto_carrito"
+        seccionCarritoGeneral.append(divProductosGeneral);
 
         // BOTON AGREGAR PRODUCTO
         const agregarProducto = (producto) => {
@@ -85,15 +85,15 @@ function carrito() {
                 title: '¡Listo!',
                 text: 'El producto se agregó al carrito correctamente.'
             })
-            let divProducto = document.createElement("div");
+            let divProductoAgregado = document.createElement("div");
             let contenedorProductosAgregados = document.getElementById("contenedor_productos_agregados");
-            divProducto.innerHTML = `
+            divProductoAgregado.innerHTML = `
                 <h3>ID: ${producto.id}</h3>
                 <p>Nombre: ${producto.nombre}</p>
                 <p>Precio: ${producto.precio}</p>
             `
-            divProducto.className = "producto_carrito"
-            contenedorProductosAgregados.append(divProducto);
+            divProductoAgregado.className = "producto_carrito"
+            contenedorProductosAgregados.append(divProductoAgregado);
         }
         let agregar = document.getElementById(`boton${producto.id}`);
         agregar.addEventListener("click", () => agregarProducto(producto));
@@ -105,66 +105,59 @@ function carrito() {
         let contenedorCarrito = document.getElementById("contenedor_carrito");
         let busqueda = document.getElementById("input_busqueda");
         let reset = document.createElement("button");
-        let condicion = false;
 
         reset.className = "boton_restart";
         reset.innerHTML = `
             Reset
         `;
         contenedorBusqueda.append(reset);
+        // BOTON AGREGAR
+        const agregarProducto = (producto) => {
+            Swal.fire({
+                icon: 'success',
+                title: '¡Listo!',
+                text: 'El producto se agregó al carrito correctamente.'
+            })
 
-        reset.addEventListener("click", (r) =>{
-            location.reload();
-            r.preventDefault();
-        });
+            let divProducto = document.createElement("div");
+            let contenedorProductosAgregados = document.getElementById("contenedor_productos_agregados");
+            divProducto.innerHTML = `
+                <h3>ID: ${producto.id}</h3>
+                <p>Nombre: ${producto.nombre}</p>
+                <p>Precio: ${producto.precio}</p>
+            `;
+            divProducto.className = "producto_carrito";
+            contenedorProductosAgregados.append(divProducto);
+        }
 
         contenedorBusqueda.addEventListener("submit", (e) => {
             e.preventDefault();
-            condicion = true;
-            if(condicion === true){
-                contenedor.className = "section_desaparece";
-            }
+            seccionCarritoGeneral.classList.add("section_desaparece");
 
             productoBuscado = busqueda.value.toLowerCase();
             let producto = productos.find(producto => producto.nombre === productoBuscado);
             if (producto.nombre === productoBuscado){
-                // RESET
                 contenedorCarrito.innerHTML = "";
-                reset.innerHTML = "";
-
+                
                 // DIV PRODUCTO BUSCADO
-                let div2 = document.createElement("div");
-                div2.innerHTML = `
+                let divProductoBuscado = document.createElement("div");
+                divProductoBuscado.innerHTML = `
                     <h3>ID: ${producto.id}</h3>
                     <p>Nombre: ${producto.nombre}</p>
                     <p>Precio: ${producto.precio}</p>
-                    <button id="boton${producto.id}" class="boton_add">Add</button>
+                    <button id="boton${producto.nombre}" class="boton_add">Add</button>
                 `;
-                reset.innerHTML = `
-                    Reset
-                `;
-                contenedorCarrito.append(div2);
-                div2.className = "resultado_busqueda";
+                contenedorCarrito.append(divProductoBuscado);
+                divProductoBuscado.className = "resultado_busqueda";
+                divProductoBuscado.classList.remove("section_desaparece");
 
-                // BOTON AGREGAR
-                const agregarProducto = (producto) => {
-                    Swal.fire({
-                        icon: 'success',
-                        title: '¡Listo!',
-                        text: 'El producto se agregó al carrito correctamente.'
-                    })/* 
-                    sessionStorage.setItem("Producto agregado", JSON.stringify(producto)); */
-                    let divProducto = document.createElement("div");
-                    let contenedorProductosAgregados = document.getElementById("contenedor_productos_agregados");
-                    divProducto.innerHTML = `
-                        <h3>ID: ${producto.id}</h3>
-                        <p>Nombre: ${producto.nombre}</p>
-                        <p>Precio: ${producto.precio}</p>
-                    `
-                    divProducto.className = "producto_carrito"
-                    contenedorProductosAgregados.append(divProducto);
-                }        
-                let agregar = document.getElementById(`boton${producto.id}`);
+                reset.addEventListener("click", (r) =>{
+                    seccionCarritoGeneral.classList.remove("section_desaparece");
+                    divProductoBuscado.classList.add("section_desaparece");
+                    r.preventDefault();
+                });
+
+                let agregar = document.getElementById(`boton${producto.nombre}`);
                 agregar.addEventListener("click", () => agregarProducto(producto));
             }
         })
@@ -172,38 +165,40 @@ function carrito() {
     busqueda();
 }
 
-const botonRojo = () => {
-    const respuesta = () => {
-        nav.className = "rojo";
+function colores() {
+    const botonRojo = () => {
+        const respuesta = () => {
+            nav.className = "rojo";
+        }
+        
+        let nav = document.getElementById("header");
+        let boton = document.getElementById("boton_rojo");
+        boton.addEventListener("click", respuesta);
     }
+    botonRojo();
     
-    let nav = document.getElementById("header");
-    let boton = document.getElementById("boton_rojo");
-    boton.addEventListener("click", respuesta);
-}
-
-const botonAzul = () => {
-    const respuesta = () => {
-        nav.className = "azul";
+    const botonAzul = () => {
+        const respuesta = () => {
+            nav.className = "azul";
+        }
+        
+        let nav = document.getElementById("header");
+        let boton = document.getElementById("boton_azul");
+        boton.addEventListener("click", respuesta);
     }
+    botonAzul();
     
-    let nav = document.getElementById("header");
-    let boton = document.getElementById("boton_azul");
-    boton.addEventListener("click", respuesta);
-}
-
-const botonVerde = () => {
-    const respuesta = () => {
-        nav.className = "verde";
+    const botonVerde = () => {
+        const respuesta = () => {
+            nav.className = "verde";
+        }
+        
+        let nav = document.getElementById("header");
+        let boton = document.getElementById("boton_verde");
+        boton.addEventListener("click", respuesta);
     }
-    
-    let nav = document.getElementById("header");
-    let boton = document.getElementById("boton_verde");
-    boton.addEventListener("click", respuesta);
+    botonVerde();
 }
 
 ingreso();
 carrito();
-botonRojo();
-botonAzul();
-botonVerde();
