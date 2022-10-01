@@ -111,6 +111,7 @@ function carrito() {
             Reset
         `;
         contenedorBusqueda.append(reset);
+
         // BOTON AGREGAR
         const agregarProducto = (producto) => {
             Swal.fire({
@@ -139,7 +140,6 @@ function carrito() {
             if (producto.nombre === productoBuscado){
                 contenedorCarrito.innerHTML = "";
 
-                // DIV PRODUCTO BUSCADO
                 let divProductoBuscado = document.createElement("div");
                 divProductoBuscado.innerHTML = `
                     <h3>ID: ${producto.id}</h3>
