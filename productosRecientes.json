@@ -1,0 +1,7 @@
+[
+    {"id": 1, "nombre": "PS5", "precio": "$150000"},
+    {"id": 2, "nombre": "XBOX", "precio": "$130000"},
+    {"id": 3, "nombre": "Joystick PS5", "precio": "$15000"},
+    {"id": 4, "nombre": "Joystick XBOX", "precio": "$13000"},
+    {"id": 5, "nombre": "Auriculares", "precio": "$9000"}
+]

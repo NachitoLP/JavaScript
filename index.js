@@ -24,6 +24,28 @@ function ingreso() {
 // FUNCION DE CARRITO
 function carrito() {
     let seccionCarritoGeneral = document.getElementById("carrito");
+
+    const productos = [
+        {id: 1, nombre: "camisa", precio: "$5500"},
+        {id: 2, nombre: "medias", precio: "$1000"},
+        {id: 3, nombre: "zapatillas", precio: "$8000"},
+        {id: 4, nombre: "gorra", precio: "$3000"},
+        {id: 5, nombre: "guantes", precio: "$1200"},
+        {id: 6, nombre: "pantalon", precio: "$9000"},
+        {id: 7, nombre: "sabana", precio: "$4500"},
+        {id: 8, nombre: "almohada", precio: "$2500"},
+        {id: 9, nombre: "frazada", precio: "$4500"},
+        {id: 10, nombre: "bufanda", precio: "$2260"},
+        {id: 11, nombre: "botines", precio: "$13500"},
+        {id: 12, nombre: "colchon", precio: "$47000"},
+        {id: 13, nombre: "gorro", precio: "$3300"},
+        {id: 14, nombre: "lona", precio: "$7800"},
+        {id: 15, nombre: "alfombra", precio: "$8900"},
+        {id: 16, nombre: "cortina", precio: "$11000"},
+        
+    ]
+
+    localStorage.setItem("carrito", JSON.stringify(productos));
     let carritoStorage = JSON.parse(localStorage.getItem("carrito"));
     let carrito = carritoStorage ? carritoStorage : carrito = [];
     let botonEliminar = document.getElementById("boton_eliminar");
@@ -45,26 +67,6 @@ function carrito() {
         }
     })
     
-    const productos = [
-        {id: 1, nombre: "camisa", precio: "$5500"},
-        {id: 2, nombre: "medias", precio: "$1000"},
-        {id: 3, nombre: "zapatillas", precio: "$8000"},
-        {id: 4, nombre: "gorra", precio: "$3000"},
-        {id: 5, nombre: "guantes", precio: "$1200"},
-        {id: 6, nombre: "pantalon", precio: "$9000"},
-        {id: 7, nombre: "sabana", precio: "$4500"},
-        {id: 8, nombre: "almohada", precio: "$2500"},
-        {id: 9, nombre: "frazada", precio: "$4500"},
-        {id: 10, nombre: "bufanda", precio: "$2260"},
-        {id: 11, nombre: "botines", precio: "$13500"},
-        {id: 12, nombre: "colchon", precio: "$47000"},
-        {id: 13, nombre: "gorro", precio: "$3300"},
-        {id: 14, nombre: "lona", precio: "$7800"},
-        {id: 15, nombre: "alfombra", precio: "$8900"},
-        {id: 16, nombre: "cortina", precio: "$11000"},
-        
-    ]
-    localStorage.setItem("carrito", JSON.stringify(productos));
     
     // FOREACH DE CADA PRODUCTO
     carrito.forEach(producto => {
@@ -130,7 +132,7 @@ function carrito() {
             divProducto.className = "producto_carrito";
             contenedorProductosAgregados.append(divProducto);
         }
-
+        // BOTON ENVIAR
         contenedorBusqueda.addEventListener("submit", (e) => {
             e.preventDefault();
             seccionCarritoGeneral.classList.add("section_desaparece");
@@ -161,7 +163,48 @@ function carrito() {
                 agregar.addEventListener("click", () => agregarProducto(producto));
             }
         })
+    }
+
+    // FETCH
+    const productosRecientes = () => {
+        let contenedorProductosRecientes = document.getElementById("contenedor_productos_recientes");
+
+        fetch("./productosRecientes.json")
+        .then((respuesta) => respuesta.json())
+        .then((data) => {
+            data.forEach((item) => {
+                let divProductoReciente = document.createElement("div");
+                divProductoReciente.innerHTML = `
+                    <h3>${item.nombre}</h3>
+                    <p>Precio: ${item.precio}</p>
+                    <button id="boton${item.nombre}" class="boton_add">Add</button>
+                `;
+                divProductoReciente.className = "producto_carrito";
+                contenedorProductosRecientes.append(divProductoReciente);
+
+                let agregar = document.getElementById(`boton${item.nombre}`);
+                agregar.addEventListener("click", () => agregarProducto(item));
+            })
+            
+        })
+        const agregarProducto = (item) => {
+            Swal.fire({
+                icon: 'success',
+                title: '¡Listo!',
+                text: 'El producto se agregó al carrito correctamente.'
+            })
+
+            let divProducto = document.createElement("div");
+            let contenedorProductosAgregados = document.getElementById("contenedor_productos_agregados");
+            divProducto.innerHTML = `
+                <h3>${item.nombre}</h3>
+                <p>Precio: ${item.precio}</p>
+            `;
+            divProducto.className = "producto_carrito";
+            contenedorProductosAgregados.append(divProducto);
+        }
     } 
+    productosRecientes();
     busqueda();
 }
 

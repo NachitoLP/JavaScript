@@ -148,6 +148,35 @@ li {
     .body_main .body_main_section_2 .resultado_busqueda h3 {
       color: white;
       margin: 7px 0px; }
+  .body_main .section_carrito_recientes {
+    width: 100%;
+    background: #121042;
+    background: linear-gradient(180deg, #121042 10%, #121042 95%, #1c1235 100%); }
+    .body_main .section_carrito_recientes .titulo_carrito {
+      color: white;
+      font-size: 22px;
+      padding: 25px; }
+    .body_main .section_carrito_recientes .div_carrito_recientes {
+      display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap; }
+      .body_main .section_carrito_recientes .div_carrito_recientes .producto_carrito {
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 140px;
+        height: 140px;
+        margin: 30px 40px;
+        border-radius: 5px;
+        box-shadow: 3px 3px 2px 2px rgba(0, 0, 0, 0.6);
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center; }
+        .body_main .section_carrito_recientes .div_carrito_recientes .producto_carrito p {
+          color: white;
+          line-height: 60px; }
+        .body_main .section_carrito_recientes .div_carrito_recientes .producto_carrito h3 {
+          color: white;
+          margin: 20px 0px 0px; }
   .body_main #boton_rojo {
     padding: 5px;
     width: 50px;
@@ -195,7 +224,7 @@ li {
       transition: 0.2s; }
   .body_main .section_carrito {
     text-align: center;
-    margin: 47px 0px;
+    margin: 47px 0px 0px;
     background: #766c93;
     background: linear-gradient(180deg, #332e41 2%, #121042 85%, #121042 100%);
     width: 100%;
